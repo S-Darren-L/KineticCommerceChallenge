@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">KineticCommerceChallenge</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="medium_image">mediumImage</string>
+    <string name="user_name_sample">Mr Romain Hoogmoed</string>
+    <string name="phone_label">Phone: </string>
+    <string name="phone_number_sample">(656)-976-4980</string>
+    <string name="cell_label">Cell: </string>
+    <string name="cell_number_sample">(065)-247-9303</string>
+    <string name="address_label">Address: </string>
+    <string name="address_sample">1861 jan pieterszoon coenstraat, Maasdriel, Zeeland, 69217</string>
+    <string name="email_label">Email: </string>
+    <string name="email_sample">romain.hoogmoed@example.com</string>
+</resources>

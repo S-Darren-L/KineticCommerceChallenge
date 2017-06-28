@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.darren.android.kineticcommercechallenge.Activities.UserInfoActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/sign_up_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:id="@+id/toolbar_title" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/userMediumImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/medium_image"/>
+
+    <TextView
+        android:id="@+id/userNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/userMediumImageView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/userMediumImageView"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textSize="25sp"
+        android:text="@string/user_name_sample"/>
+
+    <TextView
+        android:id="@+id/userPhoneLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/userMediumImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/userMediumImageView"
+        app:layout_constraintRight_toRightOf="@+id/userMediumImageView"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/phone_label"
+        />
+
+    <TextView
+        android:id="@+id/userPhoneTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@+id/userNameTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/userNameTextView"
+        app:layout_constraintTop_toTopOf="@+id/userPhoneLabel"
+        app:layout_constraintBottom_toBottomOf="@+id/userPhoneLabel"
+        android:textSize="18sp"
+        android:text="@string/phone_number_sample" />
+
+    <TextView
+        android:id="@+id/userCellLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/userPhoneLabel"
+        app:layout_constraintLeft_toLeftOf="@+id/userPhoneLabel"
+        app:layout_constraintRight_toRightOf="@+id/userPhoneLabel"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/cell_label" />
+
+    <TextView
+        android:id="@+id/userCellTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@+id/userPhoneTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/userPhoneTextView"
+        app:layout_constraintTop_toTopOf="@+id/userCellLabel"
+        app:layout_constraintBottom_toBottomOf="@+id/userCellLabel"
+        android:textSize="18sp"
+        android:text="@string/cell_number_sample" />
+
+    <TextView
+        android:id="@+id/addressLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/userCellLabel"
+        app:layout_constraintLeft_toLeftOf="@+id/userCellLabel"
+        app:layout_constraintRight_toRightOf="@+id/userCellLabel"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/address_label" />
+
+    <TextView
+        android:id="@+id/userAddressTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/userCellTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/userCellTextView"
+        app:layout_constraintRight_toRightOf="@+id/userCellTextView"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/address_sample"/>
+
+    <TextView
+        android:id="@+id/userEmailLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/userAddressTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/userCellLabel"
+        app:layout_constraintRight_toRightOf="@+id/userCellLabel"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/email_label" />
+
+    <TextView
+        android:id="@+id/userEmailTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@+id/userCellTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/userCellTextView"
+        app:layout_constraintTop_toTopOf="@+id/userEmailLabel"
+        app:layout_constraintBottom_toBottomOf="@+id/userEmailLabel"
+        android:textSize="18sp"
+        android:text="@string/email_sample" />
+
+</android.support.constraint.ConstraintLayout>
