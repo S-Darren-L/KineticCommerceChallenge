@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import com.darren.android.kineticcommercechallenge.Adapters.UserListAdapter;
 import com.darren.android.kineticcommercechallenge.DataModels.RandomUserResponse;
 import com.darren.android.kineticcommercechallenge.DataModels.Result;
+import com.darren.android.kineticcommercechallenge.Listeners.OnLoadMoreListener;
 import com.darren.android.kineticcommercechallenge.R;
 import com.darren.android.kineticcommercechallenge.Services.UserClient;
 import com.darren.android.kineticcommercechallenge.Utils.Constants;
@@ -57,13 +58,22 @@ public class MainActivity extends AppCompatActivity {
         if(recyclerViewState != null) {
             linearLayoutManager.onRestoreInstanceState(recyclerViewState);
         }
+        userBriefInfoRV.setLayoutManager(linearLayoutManager);
+
         if (userResult == null) {
             userResult = new ArrayList<>();
             getRandomUser();
         }
+
         if(userListAdapter == null)
-            userListAdapter = new UserListAdapter(this, userResult);
-        userBriefInfoRV.setLayoutManager(linearLayoutManager);
+            userListAdapter = new UserListAdapter(this, userResult, userBriefInfoRV);
+        userListAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                Log.e(TAG, "Load More");
+                getRandomUser();
+            }
+        });
         userBriefInfoRV.setAdapter(userListAdapter);
     }
 

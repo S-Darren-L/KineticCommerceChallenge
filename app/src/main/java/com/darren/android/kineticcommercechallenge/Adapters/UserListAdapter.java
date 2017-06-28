@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.darren.android.kineticcommercechallenge.Activities.UserInfoActivity;
 import com.darren.android.kineticcommercechallenge.DataModels.Result;
+import com.darren.android.kineticcommercechallenge.Listeners.OnLoadMoreListener;
 import com.darren.android.kineticcommercechallenge.R;
 import com.darren.android.kineticcommercechallenge.Utils.Constants;
 
@@ -32,10 +34,30 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
 
     private Context context;
     private ArrayList<Result> users;
+    private OnLoadMoreListener onLoadMoreListener;
+    private int lastVisibleItem;
+    private int totalItemCount;
 
-    public UserListAdapter(@NonNull Context context, @NonNull ArrayList<Result> users) {
+    public UserListAdapter(@NonNull Context context, @NonNull ArrayList<Result> users, @NonNull RecyclerView recyclerView) {
         this.context = context;
         this.users = users;
+
+        final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                totalItemCount = linearLayoutManager.getItemCount();
+                lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
+
+                if (totalItemCount <= lastVisibleItem + 1) {
+                    if (onLoadMoreListener != null) {
+                        onLoadMoreListener.onLoadMore();
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -67,6 +89,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
     @Override
     public int getItemCount() {
         return users.size();
+    }
+
+    public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
+        this.onLoadMoreListener = onLoadMoreListener;
     }
 
     private String capitalize(String word) {
